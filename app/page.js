@@ -124,7 +124,7 @@ export default function Page() {
 
           {/* Right text/logo */}
           <p className="text-sm opacity-70">
-            Powered by <a href="https://jobicy.com" target="_blank" className="hover:text-blue-400">Jobicy API</a>
+            Powered by <a href="https://jobicy.com/jobs-rss-feed" target="_blank" className="hover:text-blue-400">Jobicy API</a>
           </p>
         </div>
       </footer>
