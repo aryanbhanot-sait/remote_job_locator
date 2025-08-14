@@ -3,8 +3,9 @@
 import React, { useState, useEffect } from "react";
 import Filters from "./components/filters";
 import JobList from "./components/job-list";
+import JobDetail from "./components/job-detail";
 import worldImg from "./assets/world.jpg";
-import { getJobs } from "./lib/jobService"; // import our new function
+import { getJobs } from "./lib/jobService";
 
 export default function Page() {
   const [jobs, setJobs] = useState([]);
@@ -17,8 +18,8 @@ export default function Page() {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [selectedJob, setSelectedJob] = useState(null);
 
-  // Read count from URL on client
   useEffect(() => {
     if (typeof window !== "undefined") {
       const params = new URLSearchParams(window.location.search);
@@ -27,7 +28,7 @@ export default function Page() {
     }
   }, []);
 
-  // Fetch jobs on filters or count change
+  // Fetch jobs
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
@@ -63,8 +64,8 @@ export default function Page() {
         backgroundAttachment: "fixed",
         minHeight: "100vh",
         width: "100%",
-      }}>
-
+      }}
+    >
       <div className="fixed top-16 right-15 z-15 bg-black/50 p-4 rounded-md">
         <div>
           <label htmlFor="count" className="mr-2">
@@ -89,14 +90,44 @@ export default function Page() {
         </div>
       </div>
 
+      {/* Filters */}
       <div className="fixed w-[calc(100vw-65px)] z-10">
         <Filters filters={filters} onChange={setFilters} />
       </div>
-      <div className="mt-46">
-        {loading && <p className="text-white text-center mt-4">Loading jobs...</p>}
-        {error && <p className="text-red-400 text-center mt-4">{error}</p>}
-        {!loading && !error && <JobList jobs={jobs} />}
+
+      {/* Job list or Job detail */}
+      <div className="mt-43">
+        {loading && <p className="text-white text-center">Loading jobs...</p>}
+        {error && <p className="text-red-400 text-center">{error}</p>}
+
+        {!loading && !error && !selectedJob && (
+          <JobList jobs={jobs} onSelect={setSelectedJob} />
+        )}
+
+        {selectedJob && (
+          <JobDetail job={selectedJob} onClose={() => setSelectedJob(null)} />
+        )}
       </div>
+
+      {/* Footer */}
+      <footer className="mt-12 border-t border-white/20 bg-black/30 backdrop-blur-md text-white py-6">
+        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+
+          {/* Left text */}
+          <p className="text-sm opacity-80">
+            © {new Date().getFullYear()} Remote Job Finder. All rights reserved.
+          </p>
+
+          <p className="text-sm opacity-80 italic">
+            Made and developed with ❤︎ by <span className="font-semibold">Aryan</span>.
+          </p>
+
+          {/* Right text/logo */}
+          <p className="text-sm opacity-70">
+            Powered by <a href="https://jobicy.com" target="_blank" className="hover:text-blue-400">Jobicy API</a>
+          </p>
+        </div>
+      </footer>
 
     </main>
   );
