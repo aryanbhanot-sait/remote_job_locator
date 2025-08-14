@@ -21,6 +21,7 @@ This project fetches live remote job listings and offers powerful filtering, pag
 ## Demo
 
 <p align="center">
+  <p>Home page</p> 
   <img src="images/1.png" alt="Home page" width="100%" />
   <img src="images/2.png" alt="Footer" width="100%" />
   <img src="images/3.png" alt="Job detail" width="100%" />
