@@ -6,12 +6,10 @@ export default function Filters({ filters, onChange }) {
   const [keyword, setKeyword] = useState(filters.keyword || "");
   const [geo, setGeo] = useState(filters.geo || "");
   const [industry, setIndustry] = useState(filters.industry || "");
-  const [jobType, setJobType] = useState(filters.jobType || "");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Pass new filter values up to page.js
-    onChange({ keyword, geo, industry, jobType });
+    onChange({ keyword, geo, industry });
   };
 
   return (
@@ -48,6 +46,56 @@ export default function Filters({ filters, onChange }) {
             <option value="canada">Canada</option>
             <option value="europe">Europe</option>
             <option value="latam">LATAM</option>
+            <option value="apac">APAC</option>
+            <option value="emea">EMEA</option>
+            <option value="argentina">Argentina</option>
+            <option value="australia">Australia</option>
+            <option value="austria">Austria</option>
+            <option value="belgium">Belgium</option>
+            <option value="brazil">Brazil</option>
+            <option value="bulgaria">Bulgaria</option>
+            <option value="china">China</option>
+            <option value="hong-kong">Hong Kong</option>
+            <option value="costa-rica">Costa Rica</option>
+            <option value="croatia">Croatia</option>
+            <option value="cyprus">Cyprus</option>
+            <option value="czechia">Czechia</option>
+            <option value="denmark">Denmark</option>
+            <option value="estonia">Estonia</option>
+            <option value="finland">Finland</option>
+            <option value="france">France</option>
+            <option value="germany">Germany</option>
+            <option value="greece">Greece</option>
+            <option value="hungary">Hungary</option>
+            <option value="ireland">Ireland</option>
+            <option value="israel">Israel</option>
+            <option value="italy">Italy</option>
+            <option value="japan">Japan</option>
+            <option value="latvia">Latvia</option>
+            <option value="lithuania">Lithuania</option>
+            <option value="mexico">Mexico</option>
+            <option value="netherlands">Netherlands</option>
+            <option value="new-zealand">New Zealand</option>
+            <option value="norway">Norway</option>
+            <option value="philippines">Philippines</option>
+            <option value="poland">Poland</option>
+            <option value="portugal">Portugal</option>
+            <option value="romania">Romania</option>
+            <option value="serbia">Serbia</option>
+            <option value="singapore">Singapore</option>
+            <option value="slovakia">Slovakia</option>
+            <option value="slovenia">Slovenia</option>
+            <option value="south-korea">South Korea</option>
+            <option value="spain">Spain</option>
+            <option value="sweden">Sweden</option>
+            <option value="switzerland">Switzerland</option>
+            <option value="thailand">Thailand</option>
+            <option value="turkiye">Türkiye</option>
+            <option value="united-arab-emirates">United Arab Emirates</option>
+            <option value="uk">United Kingdom</option>
+            <option value="ukraine">Ukraine</option>
+            <option value="vietnam">Vietnam</option>
+
           </select>
         </div>
 
@@ -60,26 +108,27 @@ export default function Filters({ filters, onChange }) {
             className="p-2 rounded w-48 bg-gray-500 text-white border border-white/30"
           >
             <option value="">Any</option>
-            <option value="software">Software Engineering</option>
             <option value="supporting">Customer Support</option>
-            <option value="design">Creative & Design</option>
             <option value="marketing">Marketing & Sales</option>
-          </select>
-        </div>
-
-        {/* Job Type */}
-        <div>
-          <label className="block text-sm font-medium mb-1 drop-shadow-[0_0_5px_black]">Job Type</label>
-          <select
-            value={jobType}
-            onChange={(e) => setJobType(e.target.value)}
-            className="p-2 rounded w-48 bg-gray-500 text-white border border-white/30"
-          >
-            <option value="">Any</option>
-            <option value="full-time">Full Time</option>
-            <option value="part-time">Part Time</option>
-            <option value="contract">Contract</option>
-            <option value="internship">Internship</option>
+            <option value="data-science">Data Science</option>
+            <option value="hr">Human Resources</option>
+            <option value="management">Management</option>
+            <option value="technical-support">Technical Support</option>
+            <option value="education">Education</option>
+            <option value="healthcare">Healthcare</option>
+            <option value="admin-support">Admin Support</option>
+            <option value="accounting-finance">Accounting & Finance</option>
+            <option value="business">Business</option>
+            <option value="copywriting">Copywriting</option>
+            <option value="design-multimedia">Design & Multimedia</option>
+            <option value="admin">Administration</option>
+            <option value="dev">Development</option>
+            <option value="seller">Sales & E-commerce</option>
+            <option value="seo">SEO</option>
+            <option value="smm">Social Media Marketing</option>
+            <option value="engineering">Engineering</option>
+            <option value="technical-suppor">Technical Support</option>
+            <option value="web-app-design">Web & App Design</option>
           </select>
         </div>
 
