@@ -19,7 +19,7 @@ export default function JobDetail({ job, onClose }) {
             {/* Header */}
             <div className="flex items-start mb-6">
                 {job.companyLogo && (
-                    <img
+                    <Image
                         src={job.companyLogo}
                         alt={`${decodeEntities(job.companyName)} logo`}
                         className="h-20 w-20 object-contain rounded mr-4"
